@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
-import {Navbar, Welcome} from '#components'
+import {Navbar, Welcome, Dock} from '#components'
+
+
 const App = () => {
   useEffect(()=>{
     const enterFullScreen = ()=>{
@@ -21,6 +23,7 @@ const App = () => {
     <main>
       <Navbar />
       <Welcome />
+      <Dock/>
     </main>
   )
 }
