@@ -10,8 +10,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: url("/images/macos_cursor.png") 40 20, auto;
 }
-
+a,button{
+  cursor: pointer;
+}
 @theme {
   --font-georama: "Georama", sans-serif;
   --font-roboto: "Roboto Mono", monospace;
@@ -31,6 +34,9 @@ body {
 }
 
 @layer base {
+  html, body {
+    cursor: url('/images/macos-cursor.png') 0 0, auto !important;
+  }
   main {
     @apply w-dvw h-dvh overflow-hidden;
   }
@@ -85,7 +91,7 @@ body {
     }
 
     .tooltip {
-      @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+      @apply !py-1 !px-2 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl  backdrop-blur-md;
     }
 
     .dock-icon {

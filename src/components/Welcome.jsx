@@ -39,7 +39,6 @@ const setupTextHover = (container, type)=>{
       const {left:l, width:w} = letter.getBoundingClientRect()
       const distance = Math.abs(mouseX - (l-left + w/2))
       const intensity = Math.exp(-(distance **2)/2000)
-
       animateLetter(letter,min+(max-min) * intensity)
     })
    } 
@@ -55,7 +54,7 @@ const setupTextHover = (container, type)=>{
     
   return ()=>{
     container.removeEventListener('mousemove', handleMouseMove)
-   container.removeEventListener('mouseleave', handlemouseLeave)
+    container.removeEventListener('mouseleave', handlemouseLeave)
   }
 }
 
@@ -71,7 +70,7 @@ function Welcome() {
   
   return (
     <section className="container tracking-wide" id="welcome">
-      <p ref={subtitleRef}>{rendertext("Hi👋 I'am Vijay. Welcome to my.","text-3xl font-georama",100)}</p>
+      <p ref={subtitleRef}>{rendertext("Hi👋 I'm Vijay. Welcome to my.","text-3xl font-georama",100)}</p>
       <h2  ref={titleRef}>{
     rendertext(
         "portfolio",
