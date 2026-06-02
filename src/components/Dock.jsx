@@ -2,10 +2,14 @@ import { useRef } from "react";
 import { dockApps } from "#constants";
 import { Tooltip } from "react-tooltip";
 import { useGSAP } from "@gsap/react";
+import useWindowsStore from "#store/Windows";
+
 import gsap from "gsap";
+import { WindIcon } from "lucide-react";
+
 const Dock = () => {
   const dockRef = useRef(null);
-
+  const { openWindow,closeWindow, windows } = useWindowsStore();
   useGSAP(() => {
     const dock = dockRef.current;
      
@@ -13,7 +17,7 @@ const Dock = () => {
     const icons = dock.querySelectorAll(".dock-icon");
     gsap.from(icons,{
       y:80,
-      opacity:0,
+      opacity:0.25,
       duration:0.4,
       stagger:0.109,
       delay:0.8
@@ -56,7 +60,20 @@ const Dock = () => {
       dock.removeEventListener("mouseleave", () => {icons.forEach(resetIcons)})
     }
   }, []);
-  const toggleApp = ({ id, canOpen }) => {};
+  const toggleApp = (app) => {
+   if(!windows) return "<p>Windows is Broken<p/>"
+
+    if (!app.canOpen) return;
+    if(windows[app.id].isOpen){
+      closeWindow(app.id)
+    }
+    else{
+      openWindow(app.id)
+    }
+    
+  };
+
+
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
