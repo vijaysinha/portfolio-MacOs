@@ -1,8 +1,16 @@
 import React, { useEffect } from 'react'
+
+import gsap from 'gsap'
+import { Draggable } from 'gsap/Draggable'
+gsap.registerPlugin(Draggable)
+
 import {Navbar, Welcome, Dock} from '#components'
+import { Terminal } from '#window'
 
 
 const App = () => {
+
+
   useEffect(()=>{
     const enterFullScreen = ()=>{
       const elem = document.documentElement
@@ -24,6 +32,8 @@ const App = () => {
       <Navbar />
       <Welcome />
       <Dock/>
+
+      <Terminal/>
     </main>
   )
 }
