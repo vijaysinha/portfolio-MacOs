@@ -1,3 +1,3 @@
 import Terminal from "#window/Terminal";
-
-export {Terminal}
+import Safari from "#window/Safari";
+export {Terminal, Safari}
