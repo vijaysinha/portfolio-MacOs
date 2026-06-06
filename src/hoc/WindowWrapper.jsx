@@ -39,11 +39,11 @@ const WindowWrapper = (Component, window_key) => {
       const elRef = ref.current
       const [instance] = Draggable.create(elRef,
         {type: "x,y",
-          inertia: true,
-          edgeResistance:0.15,
-          throwResistance:500,
-          bounds:window,
-          zIndexBoost:false
+          
+          // edgeResistance:0.15,
+          // throwResistance:500,
+          // bounds:window,
+          // zIndexBoost:false
         }
       )
 
